@@ -1,0 +1,194 @@
+#form {
+  border: black solid 2px;
+  color: white;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-size: cover;
+  background-image: url("/../images/camera-Carlzeiss.jpg");
+  /*************************************************************
+    **************************************************************
+    *************** CONFIRMATION *********************************
+    **************************************************************
+    *************************************************************/
+}
+
+body header {
+  background-color: #4d4b4b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+body header img {
+  width: 20%;
+}
+
+body header ul li {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  list-style: none;
+  margin-right: 20%;
+}
+
+body #container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  /*************************************************************
+    **************************************************************
+    *************** FICHE PRODUIT SEUL ***************************
+    **************************************************************
+    *************************************************************/
+  /*************************************************************
+    **************************************************************
+    *************** PANIER ***************************************
+    **************************************************************
+    *************************************************************/
+}
+
+body #container .product {
+  width: 300px;
+  height: auto;
+  margin: 1%;
+  color: white;
+  background-color: rgba(77, 75, 75, 0.87);
+}
+
+body #container .product .img {
+  width: 70%;
+  margin-left: 15%;
+}
+
+body #container .product .name {
+  text-align: center;
+  font-weight: bold;
+}
+
+body #container .product .description {
+  text-align: center;
+}
+
+body #container .product .prix {
+  text-align: center;
+  font-weight: bold;
+}
+
+body #container .product .achat {
+  margin: 3%;
+  border-radius: 10px;
+}
+
+body #container .product button {
+  width: 50%;
+}
+
+body #container .productSolo {
+  width: 50%;
+  height: auto;
+  margin-bottom: 2%;
+  background-color: rgba(77, 75, 75, 0.76);
+  color: white;
+  font-size: 1.2rem;
+}
+
+body #container .productSolo .imgSolo {
+  width: 70%;
+  margin-left: 15%;
+}
+
+body #container .productSolo .nameSolo {
+  text-align: center;
+  font-weight: bold;
+}
+
+body #container .productSolo .descriptionSolo {
+  text-align: center;
+}
+
+body #container .productSolo .prixSolo {
+  text-align: center;
+  font-weight: bold;
+}
+
+body #container .productSolo .achatSolo {
+  margin: 3%;
+  border-radius: 10px;
+}
+
+body #container .achat {
+  background-color: white;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  border: solid 2px black;
+}
+
+body #container .achat .imgPanier {
+  height: 50px;
+  width: auto;
+  margin-bottom: 5%;
+}
+
+body #container .achat .namePanier {
+  font-size: 1.2rem;
+}
+
+body .orderText {
+  color: white;
+  text-align: center;
+}
+
+body footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 20%;
+  background-color: #4d4b4b;
+}
+
+body footer p {
+  color: white;
+  font-size: 1.2rem;
+  padding: 2%;
+}
+/*# sourceMappingURL=style.css.map */

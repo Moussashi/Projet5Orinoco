@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Orinoco-Fiche Produit</title>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="/images/Orinoco.png" alt="logo Orinoco"></a>
+        <ul>
+            <a href="panier.html"><li>Panier</li></a>
+        </ul>
+    </header>
+    <h1>Votre Panier</h1>
+
+    <main id="container">
+    </main>
+    <section id="form">
+        <h2>Merci de renseigner vos informations</h2>
+
+        <form id="formulaire" >
+            <label for="lname">Nom:</label>
+            <input id="lname" type="text"  name="lname" required><br><br>
+
+            <label for="fname">Prenom:</label>
+            <input id="fname" type="text" name="fname" required><br><br>
+
+            <label for="adress">Adresse:</label>
+            <input id="adress" type="text" name="adress" required><br><br>
+
+            <label for="ville">Ville:</label>
+            <input id="ville" type="text" name="ville" required><br><br>
+
+            <label for="mail">e-mail</label>
+            <input id="mail" type="email" required />
+
+            <button type="submit" name="submit">Submit</button>
+        </form>
+
+    </section>
+
+    <footer>
+        <p>contactez nous</p>
+        <p>autre</p>
+    </footer>
+    <script src="./js/Model.js"></script>
+    <script src="./js/View.js" type="text/javascript"></script>
+    <script src="./js/Controller.js" type="text/javascript"></script>
+    <script>
+        let controller = new Controller();
+        controller.showPanier();
+    </script>
+
+</body>
+</html>

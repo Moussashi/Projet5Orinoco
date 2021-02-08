@@ -1,0 +1,154 @@
+
+#form {
+    border: black solid 2px;
+    color: white;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-size: cover;
+    background-image: url("/../images/camera-Carlzeiss.jpg");
+    header {
+        background-color: rgb(77, 75, 75);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 10px;
+        img {
+            width: 20%;
+        }
+
+        ul {
+            li {
+                color: white;
+                font-size: 1.2rem;
+                font-weight: bolder;
+                list-style: none;
+                margin-right: 20%;
+            }
+        }
+    }
+    
+    #container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        .product {
+            width: 300px;
+            height: auto;
+            margin: 1%;
+            color: white;
+            background-color: rgba(77, 75, 75, 0.87);
+            .img {
+                    width: 70%;
+                    margin-left: 15%;
+            }
+            .name {
+                text-align: center;
+                font-weight: bold;
+            }
+            .description {
+                text-align: center;
+            }
+            .prix {
+                text-align: center;
+                font-weight: bold;
+            }
+            .achat {
+                margin: 3%;
+                border-radius: 10px;
+            }
+            button {
+                width: 50%;
+            }
+        }
+    /*************************************************************
+    **************************************************************
+    *************** FICHE PRODUIT SEUL ***************************
+    **************************************************************
+    *************************************************************/
+
+        .productSolo {
+                width: 50%;
+                height: auto;
+                margin-bottom: 2%;
+                background-color: rgba(77, 75, 75, 0.76);
+                color: white;
+                font-size: 1.2rem;
+                .imgSolo {
+                        width: 70%;
+                        margin-left: 15%;
+                }
+                .nameSolo {
+                    text-align: center;
+                    font-weight: bold;
+                }
+                .descriptionSolo {
+                    text-align: center;
+                }
+                .prixSolo {
+                    text-align: center;
+                    font-weight: bold;
+                }
+                .achatSolo {
+                    margin: 3%;
+                    border-radius: 10px;
+                }
+    
+        }
+    /*************************************************************
+    **************************************************************
+    *************** PANIER ***************************************
+    **************************************************************
+    *************************************************************/
+    .achat {
+        background-color: white;
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        border: solid 2px black;
+        .imgPanier {
+            height: 50px;
+            width: auto;
+            margin-bottom: 5%;
+        }
+        .namePanier {
+            font-size: 1.2rem;
+        }
+          
+    }
+
+
+    }
+
+    /*************************************************************
+    **************************************************************
+    *************** CONFIRMATION *********************************
+    **************************************************************
+    *************************************************************/
+
+    .orderText {
+        color: white;
+        text-align: center;
+    }
+    
+    footer {
+        display: flex;
+        width: 100%;
+        height: 20%;
+        background-color: rgb(77, 75, 75);
+        p {
+            color: white;
+            font-size: 1.2rem;
+            padding: 2%;
+        }
+    }
+    
+}
