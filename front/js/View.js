@@ -8,6 +8,8 @@ class View {
         console.log(listProduct)
 
         let container = document.getElementById('container')
+        //Boucle for pour réaliser un container en fonction du nombre de produits
+
         for (let i = 0; i < listProduct.length; i++) {
             let ficheProduit = document.createElement('div');
 
@@ -24,6 +26,7 @@ class View {
             
             container.appendChild(ficheProduit);
 
+            //liste d'objectifs photo
             let select = document.getElementById('selectLenses_' + i);
             for ( let j = 0; j < listProduct[i].lenses.length; j++) {
                 let lenses = listProduct[i].lenses;
@@ -39,6 +42,7 @@ class View {
 
     /***********************PAGE ARTICLE INDIVIDUEL **************************/
 
+    // On affiche le produit récuperé via l'Id + l'URL via notre controller
     showDetailProduct(detailProduct) {
         console.log(detailProduct);
         let ficheProduit = document.createElement('div');
@@ -63,6 +67,9 @@ class View {
                 select.appendChild(option);
             }
 
+        /******Quand le boutton "acheter" est préssé, nous stockons les données du produit
+        et nous envoyons une alerte au client pour confirmer son achat******************/
+
         var pressedButton = document.getElementsByTagName("button")[0];
         pressedButton.addEventListener("click", function (event) {
             alert("Merci pour votre achat !");
@@ -79,6 +86,7 @@ class View {
 
     /*******************************PAGE PANIER ********************************/
 
+    // Nous recupérons les données des produits achetés pour les afficher dans la page panier
     buyProduct(productBought) {
         let lePanier = JSON.parse(localStorage.getItem('panier'));
         console.log(lePanier);
@@ -95,6 +103,8 @@ class View {
                 `;
             container.appendChild(panier);
         }
+
+        // Ligne pour créer la ligne corréspondant au total
         let ligneTotal = document.createElement('div');
         ligneTotal.setAttribute('class', 'achat');
         ligneTotal.innerHTML = 
@@ -103,7 +113,8 @@ class View {
         `;
         container.appendChild(ligneTotal);
         localStorage.setItem('total', JSON.stringify(total));
-
+        
+        // Recupération des données du formulaire et on est envoyé à la page de confirmation
         let form = document.getElementById('formulaire');
         form.onsubmit = function submit(event) {
             event.preventDefault();
@@ -117,6 +128,7 @@ class View {
 
     /***************************PAGE DE CONFIRMATION ***************************/
 
+    // Page finale avec les données que nous prenons du POST ainsi que le total de la commande
     cameraOrder(postOrder) {
         let total = JSON.parse(localStorage.getItem('total'));
         let command = document.getElementById('command');

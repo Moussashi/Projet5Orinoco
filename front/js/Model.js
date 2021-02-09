@@ -31,6 +31,7 @@ class Model {
         });
     }
 
+    // Nouvelle classe pour réaliser notre POST
     static post(url) {
         
         return new Promise(function(resolve, reject) {
@@ -48,6 +49,7 @@ class Model {
                     } 
                 }
             }
+            // le Body de la classe POST à envoyer
 
             let articlesOrdered = JSON.parse(localStorage.getItem('panier'));
             let userInfo = JSON.parse(localStorage.getItem('userInfo'));
