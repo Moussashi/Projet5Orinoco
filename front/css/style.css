@@ -3,6 +3,14 @@
   color: white;
 }
 
+#form input :invalid {
+  border: red 1px solid;
+}
+
+#form input :valid {
+  border: green 1px solid;
+}
+
 body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -170,6 +178,18 @@ body #container .achat .imgPanier {
 
 body #container .achat .namePanier {
   font-size: 1.2rem;
+}
+
+body #container .total {
+  background-color: white;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body #container .total p {
+  font-weight: bolder;
 }
 
 body .orderText {

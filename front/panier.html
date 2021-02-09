@@ -22,19 +22,19 @@
 
         <form id="formulaire" >
             <label for="lname">Nom:</label>
-            <input id="lname" type="text"  name="lname" required><br><br>
+            <input id="lname" type="text"  name="lname" pattern="[A-Za-z0-9]+" required><br><br>
 
             <label for="fname">Prenom:</label>
-            <input id="fname" type="text" name="fname" required><br><br>
+            <input id="fname" type="text" name="fname" pattern="[A-Za-z0-9]+" required><br><br>
 
             <label for="adress">Adresse:</label>
-            <input id="adress" type="text" name="adress" required><br><br>
+            <input id="adress" type="text" name="adress" pattern="[A-Za-z0-9 ]+" required><br><br>
 
             <label for="ville">Ville:</label>
-            <input id="ville" type="text" name="ville" required><br><br>
+            <input id="ville" type="text" name="ville" pattern="[A-Za-z0-9]+" required><br><br>
 
             <label for="mail">e-mail</label>
-            <input id="mail" type="email" required />
+            <input id="mail" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
 
             <button type="submit" name="submit">Submit</button>
         </form>

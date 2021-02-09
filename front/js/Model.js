@@ -6,8 +6,6 @@ class Model {
 
     /**
      * Cette méthode appelle une url et retourne son contenu après un parseJSON. 
-     * Pour s'en servir : 
-     * let content = await Model.get("url");
      * @param {string} url 
      */
     static get(url) {
@@ -15,20 +13,14 @@ class Model {
         return new Promise(function(resolve, reject) {
             let xhr = new XMLHttpRequest();
 
-            // Définition de l'appel ajax. 
+            // appel ajax. 
             xhr.onreadystatechange = function() {
-                // Si on est à l'état "DONE" https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState
                 console.log(xhr.readyState);
                 if (xhr.readyState === xhr.DONE) {
                     if (xhr.status === 200) { 
-                        //console.log("Dans get : success");
-                        //console.log(content);
                         let content = JSON.parse(xhr.responseText)
-                        //console.log(content);
                         resolve(content);
                     } else {
-                        //console.log("Dans get : error");
-                        //console.log(xhr.readyState);
                         reject(xhr);
                     } 
                 }
@@ -44,20 +36,14 @@ class Model {
         return new Promise(function(resolve, reject) {
             let xhr = new XMLHttpRequest();
 
-            // Définition de l'appel ajax. 
             xhr.onreadystatechange = function() {
-                // Si on est à l'état "DONE" https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState
                 console.log(xhr.readyState);
                 if (xhr.readyState === xhr.DONE) {
                     if (xhr.status === 201) { 
-                        //console.log("Dans get : success");
-                        //console.log(content);
                         let content = JSON.parse(xhr.responseText)
                         console.log(content);
                         resolve(content);
                     } else {
-                        //console.log("Dans get : error");
-                        //console.log(xhr.readyState);
                         reject(xhr);
                     } 
                 }

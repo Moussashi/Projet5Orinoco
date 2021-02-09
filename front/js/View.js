@@ -20,7 +20,6 @@ class View {
                 <p class="prix">${listProduct[i].price} €</p>
                 <label for="lenses">Choose a lense:</label>
                 <select name="lenses" id="selectLenses_${i}"></select>
-                <button class="achat">Acheter</button>
             `;
             
             container.appendChild(ficheProduit);
@@ -36,10 +35,6 @@ class View {
             }
 
         }
-        var pressedButton = document.getElementsByTagName("button")[0];
-            pressedButton.addEventListener("click", function (event) {
-            alert("Merci pour votre achat !") 
-        })
     }
 
     /***********************PAGE ARTICLE INDIVIDUEL **************************/
@@ -54,10 +49,20 @@ class View {
                 <p class="nameSolo">${detailProduct.name}</p>
                 <p class="descriptionSolo">${detailProduct.description}</p>
                 <p class="prixSolo">${detailProduct.price} €</p>
-                <select name="${detailProduct.lenses}" id="lenses"></select>
+                <select name="lenses" id="selectLenses_"></select>
                 <button class="achatSolo">Acheter</button>
             `;
         container.appendChild(ficheProduit);
+        let select = document.getElementById('selectLenses_');
+            for ( let j = 0; j < detailProduct.lenses.length; j++) {
+                let lenses = detailProduct.lenses;
+                var option = document.createElement("option");
+                option.value = `${lenses[j]}`;
+                option.innerText = `${lenses[j]}`
+                console.log(option)
+                select.appendChild(option);
+            }
+
         var pressedButton = document.getElementsByTagName("button")[0];
         pressedButton.addEventListener("click", function (event) {
             alert("Merci pour votre achat !");
@@ -77,8 +82,9 @@ class View {
     buyProduct(productBought) {
         let lePanier = JSON.parse(localStorage.getItem('panier'));
         console.log(lePanier);
-
+        let total = 0;
         for (let i = 0; i < lePanier.length; i++) {
+            total += Number(lePanier[i].price);
             let panier = document.createElement('div');
             panier.setAttribute('class', 'achat');
             panier.innerHTML =
@@ -89,6 +95,14 @@ class View {
                 `;
             container.appendChild(panier);
         }
+        let ligneTotal = document.createElement('div');
+        ligneTotal.setAttribute('class', 'achat');
+        ligneTotal.innerHTML = 
+        `
+            <p id="total">Total panier : ${total} €</p>
+        `;
+        container.appendChild(ligneTotal);
+        localStorage.setItem('total', JSON.stringify(total));
 
         let form = document.getElementById('formulaire');
         form.onsubmit = function submit(event) {
@@ -104,13 +118,15 @@ class View {
     /***************************PAGE DE CONFIRMATION ***************************/
 
     cameraOrder(postOrder) {
+        let total = JSON.parse(localStorage.getItem('total'));
         let command = document.getElementById('command');
         let orderPage = document.createElement('div');
-        let total;
+        console.log(total);
         orderPage.setAttribute('class', 'orderPage');
         orderPage.innerHTML = 
         `
         <p class="orderText">Merci de votre commande ${postOrder.contact.firstName} ${postOrder.contact.lastName}</p>
+        <p class="orderText"> votre total : ${total} €</p>
         <p class="orderText"> votre commande : ${postOrder.orderId}</p>
         <p class="orderText"> Sera livrée au : ${postOrder.contact.address} ${postOrder.contact.city}</p>
         <p class="orderText"> Vous recevrez une facture sur cet adresse email : ${postOrder.contact.email}</p>

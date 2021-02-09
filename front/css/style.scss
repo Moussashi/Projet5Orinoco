@@ -2,6 +2,10 @@
 #form {
     border: black solid 2px;
     color: white;
+    :valid {
+        box-shadow: 0 0 2px 1px green;
+     }
+    }
 }
 body {
     display: flex;
@@ -123,6 +127,15 @@ body {
             font-size: 1.2rem;
         }
           
+    }
+    .total {
+        background-color: white;
+        width: 80%;
+        display: flex;
+        p {
+            font-weight: bolder;
+            
+        }
     }
 
 
