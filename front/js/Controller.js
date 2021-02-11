@@ -4,7 +4,6 @@ class Controller {
     //classe pour la page d'acceuil
     async showListProduct() {
         let listProduct = await Model.get('http://localhost:3000/api/cameras');
-        console.log(listProduct);
         let view = new View();
         view.showListProduct(listProduct);
     }

@@ -5,46 +5,36 @@ class View {
 
 
     showListProduct(listProduct) {
-        console.log(listProduct)
 
         let container = document.getElementById('container')
         //Boucle for pour réaliser un container en fonction du nombre de produits
 
         for (let i = 0; i < listProduct.length; i++) {
+            let price = Number(listProduct[i].price) / 100;
             let ficheProduit = document.createElement('div');
-
             ficheProduit.setAttribute('class', 'product')
-            ficheProduit.innerHTML = 
+            ficheProduit.innerHTML =
             `
-                <a href="ficheProduit.html?id=${listProduct[i]._id}"><img src="${listProduct[i].imageUrl}" alt="" class="img"></a>
+                <img src="${listProduct[i].imageUrl}" alt="" class="img">
                 <p class="name">${listProduct[i].name}</p>
                 <p class="description">${listProduct[i].description}</p>
-                <p class="prix">${listProduct[i].price} €</p>
-                <label for="lenses">Choose a lense:</label>
-                <select name="lenses" id="selectLenses_${i}"></select>
+                <p class="prix">${price} €</p>
+                <a href="ficheProduit.html?id=${listProduct[i]._id}"><button class="buttonDetail">Détail du Produit</button></a>
             `;
             
             container.appendChild(ficheProduit);
 
             //liste d'objectifs photo
-            let select = document.getElementById('selectLenses_' + i);
-            for ( let j = 0; j < listProduct[i].lenses.length; j++) {
-                let lenses = listProduct[i].lenses;
-                var option = document.createElement("option");
-                option.value = `${lenses[j]}`;
-                option.innerText = `${lenses[j]}`
-                console.log(option)
-                select.appendChild(option);
-            }
+            
 
         }
     }
 
     /***********************PAGE ARTICLE INDIVIDUEL **************************/
 
-    // On affiche le produit récuperé via l'Id + l'URL via notre controller
+    // On affiche le produit récuperé avec l'Id + l'URL via notre controller
     showDetailProduct(detailProduct) {
-        console.log(detailProduct);
+        let price = Number(detailProduct.price) / 100;
         let ficheProduit = document.createElement('div');
         ficheProduit.setAttribute('class', 'productSolo')
         ficheProduit.innerHTML = 
@@ -52,7 +42,7 @@ class View {
                 <a href="ficheProduit.html?id=${detailProduct._id}"><img src="${detailProduct.imageUrl}" alt="" class="imgSolo"></a>
                 <p class="nameSolo">${detailProduct.name}</p>
                 <p class="descriptionSolo">${detailProduct.description}</p>
-                <p class="prixSolo">${detailProduct.price} €</p>
+                <p class="prixSolo">${price} €</p>
                 <select name="lenses" id="selectLenses_"></select>
                 <button class="achatSolo">Acheter</button>
             `;
@@ -63,7 +53,6 @@ class View {
                 var option = document.createElement("option");
                 option.value = `${lenses[j]}`;
                 option.innerText = `${lenses[j]}`
-                console.log(option)
                 select.appendChild(option);
             }
 
@@ -74,7 +63,6 @@ class View {
         pressedButton.addEventListener("click", function (event) {
             alert("Merci pour votre achat !");
             let panier = JSON.parse(localStorage.getItem('panier')) ;
-            console.log(panier)
             if (panier == null) {
                 panier = [];
             }
@@ -83,28 +71,29 @@ class View {
         })
         
     }
-
+ 
     /*******************************PAGE PANIER ********************************/
 
     // Nous recupérons les données des produits achetés pour les afficher dans la page panier
     buyProduct(productBought) {
+        
         let lePanier = JSON.parse(localStorage.getItem('panier'));
-        console.log(lePanier);
         let total = 0;
         for (let i = 0; i < lePanier.length; i++) {
-            total += Number(lePanier[i].price);
+            let price = Number(lePanier[i].price) / 100;
+            total += price;
             let panier = document.createElement('div');
             panier.setAttribute('class', 'achat');
             panier.innerHTML =
                 `
                     <img src="${lePanier[i].imageUrl}" alt="" class="imgPanier">
                     <p class="namePanier">${lePanier[i].name}</p>
-                    <p class="pricePanier">${lePanier[i].price} €</p>
+                    <p class="pricePanier">${price} €</p>
                 `;
             container.appendChild(panier);
         }
 
-        // Ligne pour créer la ligne corréspondant au total
+        // Ligne pour créer la div corréspondant au total
         let ligneTotal = document.createElement('div');
         ligneTotal.setAttribute('class', 'achat');
         ligneTotal.innerHTML = 
@@ -133,7 +122,6 @@ class View {
         let total = JSON.parse(localStorage.getItem('total'));
         let command = document.getElementById('command');
         let orderPage = document.createElement('div');
-        console.log(total);
         orderPage.setAttribute('class', 'orderPage');
         orderPage.innerHTML = 
         `

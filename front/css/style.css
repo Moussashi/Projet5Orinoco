@@ -1,16 +1,3 @@
-#form {
-  border: black solid 2px;
-  color: white;
-}
-
-#form input :invalid {
-  border: red 1px solid;
-}
-
-#form input :valid {
-  border: green 1px solid;
-}
-
 body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -120,6 +107,10 @@ body #container .product .achat {
 
 body #container .product button {
   width: 50%;
+  background-color: gray;
+  border-radius: 8px;
+  border: 2px;
+  margin-left: 25%;
 }
 
 body #container .productSolo {
@@ -210,5 +201,10 @@ body footer p {
   color: white;
   font-size: 1.2rem;
   padding: 2%;
+}
+
+#form {
+  border: black solid 2px;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */
